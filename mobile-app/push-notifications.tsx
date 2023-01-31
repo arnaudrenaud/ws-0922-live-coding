@@ -80,3 +80,16 @@ export const usePushNotifications = () => {
 
   return { expoPushToken, notification };
 };
+
+export const usePushAction = (actionName: string, callback: () => void) => {
+  const { notification } = usePushNotifications();
+
+  useEffect(() => {
+    if (notification) {
+      const action = notification.request.content.data.action;
+      if (action === actionName) {
+        callback();
+      }
+    }
+  }, [notification]);
+};
