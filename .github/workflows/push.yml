@@ -2,9 +2,9 @@ name: CI checks
 on: push
 
 jobs:
-  ci:
+  back-end:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Say hello
-        run: echo 'Hello from GitHub'
+      - name: Build and test
+        run: docker compose -f docker-compose.ci.back-end.yml up --build --exit-code-from back-end
