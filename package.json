@@ -1,0 +1,23 @@
+{
+  "name": "ws-0922-live-coding",
+  "version": "1.0.0",
+  "description": "Base project",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"**/*.{ts,tsx}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnaudrenaud/ws-0922-live-coding.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arnaudrenaud/ws-0922-live-coding/issues"
+  },
+  "homepage": "https://github.com/arnaudrenaud/ws-0922-live-coding#readme",
+  "devDependencies": {
+    "prettier": "^2.8.4"
+  }
+}
