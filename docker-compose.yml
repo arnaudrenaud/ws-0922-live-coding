@@ -17,7 +17,9 @@ services:
       - database
 
   web-app:
-    build: ./web-app
+    build:
+      context: ./web-app
+      target: ci
     ports:
       - 3000:3000
     volumes:

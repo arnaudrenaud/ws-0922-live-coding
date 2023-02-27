@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  web-app:
+    build:
+      context: ./web-app
+      target: ci

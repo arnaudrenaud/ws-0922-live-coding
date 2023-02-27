@@ -29,6 +29,7 @@ describe("Home", () => {
       const mockGetWildersEmpty: MockedResponse<GetWildersQuery> = {
         request: {
           query: GET_WILDERS,
+          variables: { pageNumber: 1 },
         },
         result: {
           data: {
@@ -57,6 +58,7 @@ describe("Home", () => {
       const mockGetWildersNotEmpty: MockedResponse<GetWildersQuery> = {
         request: {
           query: GET_WILDERS,
+          variables: { pageNumber: 1 },
         },
         result: {
           data: {
