@@ -18,5 +18,5 @@ jobs:
           git add .
           git config user.name "GitHub Actions"
           git config user.email "<>"
-          git commit -m "[✍️ AUTO] Format TS and TSX files with Prettier" || true
+          git commit -m "✍️ (AUTO) Format TS and TSX files with Prettier" || true
           git push
