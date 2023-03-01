@@ -7,6 +7,12 @@ import "./index.css";
 import App from "./App/App";
 import reportWebVitals from "./reportWebVitals";
 
+
+
+
+
+
+
 const client = new ApolloClient({
   uri: "/",
   cache: new InMemoryCache({
