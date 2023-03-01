@@ -55,7 +55,7 @@ const startServer = async () => {
   await SchoolRepository.initializeSchools();
   await WilderRepository.initializeWilders();
 
-  console.log(`🚀  Server ready at ${url}`);
+  console.log(`🚀  Server ready at ${url}.`);
 };
 
 startServer();
