@@ -8,7 +8,7 @@ import App from "./App/App";
 import reportWebVitals from "./reportWebVitals";
 
 const client = new ApolloClient({
-  uri: "/",
+  uri: "/graphql",
   cache: new InMemoryCache({
     typePolicies: {
       Query: {
