@@ -14,6 +14,7 @@ import AppUserRepository from "./models/AppUser/AppUser.repository";
 import { getSessionIdInCookie } from "./http-utils";
 import AppUser from "./models/AppUser/AppUser.entity";
 import { initializeDatabaseRepositories } from "./database/utils";
+import { IS_PRODUCTION } from "./config";
 
 export type GlobalContext = ExpressContext & {
   user: AppUser | null;
@@ -51,9 +52,11 @@ const startServer = async () => {
   const { url } = await server.listen();
   await initializeDatabaseRepositories();
 
-  await SkillRepository.initializeSkills();
-  await SchoolRepository.initializeSchools();
-  await WilderRepository.initializeWilders();
+  if (!IS_PRODUCTION) {
+    await SkillRepository.initializeSkills();
+    await SchoolRepository.initializeSchools();
+    await WilderRepository.initializeWilders();
+  }
 
   console.log(`🚀  Server ready at ${url}.`);
 };
