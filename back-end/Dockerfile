@@ -12,3 +12,6 @@ CMD npm run start:watch & npx nodemon -w package.json --exec 'npm install'
 
 FROM base as ci
 CMD npm run build && npm run test
+
+FROM base as prod
+CMD npm run build && npm run start

@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  back-end:
+    build:
+      context: ./back-end
+      target: prod
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgres://postgres:password@database:5432/postgres
+    expose:
+      - 4000
+    restart: always
+    depends_on:
+      - database
+
+  web-app:
+    build:
+      context: ./web-app
+      target: prod
+    volumes:
+      - web-app-build:/app/build
+
+  database:
+    image: postgres:14.5-alpine
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - database-content:/var/lib/postgresql/data
+    expose:
+      - 5432
+    restart: always
+
+  gateway:
+    image: nginx
+    ports:
+      - ${GATEWAY_PORT}:80
+    depends_on:
+      - back-end
+      - web-app
+    volumes:
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf
+      - web-app-build:/web-app-build
+    restart: always
+
+volumes:
+  database-content:
+  web-app-build:

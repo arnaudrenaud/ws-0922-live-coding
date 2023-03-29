@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   back-end:
@@ -6,6 +6,7 @@ services:
       context: ./back-end
       target: dev
     environment:
+      NODE_ENV: development
       DATABASE_URL: postgres://postgres:password@database:5432/postgres
       TEST_DATABASE_URL: postgres://postgres:password@test-database:5432/postgres
     ports:
