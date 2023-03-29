@@ -1,0 +1,19 @@
+name: deploy-main-on-staging
+
+on:
+  push:
+    branches:
+      - main
+  workflow_run:
+    workflows: ["build-and-test"]
+    types:
+      - completed
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Deploy origin/main on staging
+        run: echo 'it works'
