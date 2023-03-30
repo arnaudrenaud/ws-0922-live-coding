@@ -65,9 +65,6 @@ const Home = () => {
 
   const wilders = data?.wilders?.wilders;
   const renderMainContent = () => {
-    if (!data && loading) {
-      return <Loader role="status" />;
-    }
     if (error) {
       return error.message;
     }
