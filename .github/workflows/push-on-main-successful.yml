@@ -1,0 +1,16 @@
+name: Deploy main on staging
+
+on:
+  workflow_run:
+    workflows: ["build-and-test"]
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+  deploy-main-on-staging:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Call webhook to deploy main branch on staging environment
+        run: echo 'Hello from github'
