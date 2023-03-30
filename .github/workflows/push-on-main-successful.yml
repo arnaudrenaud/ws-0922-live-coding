@@ -13,4 +13,4 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Call webhook to deploy main branch on staging environment
-        run: echo 'Hello from github'
+        run: curl ${{ secrets.URL_WEBHOOK_DEPLOY_MAIN_ON_STAGING }}

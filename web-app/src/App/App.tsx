@@ -62,7 +62,7 @@ function App() {
       </MainContainer>
       <Footer>
         <Container>
-          <p>&copy; 2022 Wild Code School</p>
+          <p>&copy; 2023 Wild Code School</p>
         </Container>
       </Footer>
       <ToastContainer />
