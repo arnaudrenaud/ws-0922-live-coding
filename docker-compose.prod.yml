@@ -7,7 +7,7 @@ services:
       target: prod
     environment:
       NODE_ENV: production
-      DATABASE_URL: postgres://postgres:password@database:5432/postgres
+      DATABASE_URL: postgres://postgres:${DATABASE_PASSWORD}@database:5432/postgres
     expose:
       - 4000
     restart: always
@@ -24,7 +24,7 @@ services:
   database:
     image: postgres:14.5-alpine
     environment:
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
       - database-content:/var/lib/postgresql/data
     expose:
@@ -42,6 +42,11 @@ services:
       - ./gateway/nginx.conf:/etc/nginx/nginx.conf
       - web-app-build:/web-app-build
     restart: always
+
+  adminer:
+    image: adminer
+    expose:
+      - 8080
 
 volumes:
   database-content:
