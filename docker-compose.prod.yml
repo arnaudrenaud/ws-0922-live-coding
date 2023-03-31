@@ -18,8 +18,9 @@ services:
     build:
       context: ./web-app
       target: prod
-    volumes:
-      - web-app-build:/app/build
+    expose:
+      - 3000
+    restart: always
 
   database:
     image: postgres:14.5-alpine
@@ -40,7 +41,6 @@ services:
       - web-app
     volumes:
       - ./gateway/nginx.conf:/etc/nginx/nginx.conf
-      - web-app-build:/web-app-build
     restart: always
 
   adminer:
@@ -50,4 +50,3 @@ services:
 
 volumes:
   database-content:
-  web-app-build:

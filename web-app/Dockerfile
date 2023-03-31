@@ -7,11 +7,16 @@ RUN npm install
 
 COPY . ./
 
+FROM base as build
+COPY src ./src
+RUN npm run build
+
 FROM base as dev
 CMD npm start
 
-FROM base as ci
-CMD npm run build && npm run test
+FROM build as ci
+CMD npm run test
 
-FROM base as prod
-CMD npm run build
+FROM build as prod
+RUN npm install -g serve
+CMD npx serve build
