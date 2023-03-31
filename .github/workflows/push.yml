@@ -1,4 +1,4 @@
-name: build-and-test
+name: build-test-deploy-staging
 
 on: push
 
@@ -18,3 +18,11 @@ jobs:
         uses: actions/checkout@v3
       - name: Build and test web app
         run: docker compose -f docker-compose.ci.web-app.yml up --build --exit-code-from web-app
+
+  deploy-main-on-staging:
+    needs: [back-end, web-app]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call webhook to deploy main branch on staging environment
+        run: curl ${{ secrets.URL_WEBHOOK_DEPLOY_MAIN_ON_STAGING }}
