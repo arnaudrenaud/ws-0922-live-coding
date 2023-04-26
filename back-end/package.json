@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --runInBand",
-    "test:watch": "jest --watchAll --runInBand",
+    "test": "NODE_ENV=test jest --runInBand",
+    "test:watch": "npm run test -- --watchAll",
     "build": "tsc",
     "start": "node dist/index.js",
     "start:watch": "tsc && (tsc -w & nodemon dist/index.js)"
