@@ -19,4 +19,4 @@ CMD npm run test
 
 FROM build as prod
 RUN npm install -g serve
-CMD npx serve build
+CMD npx serve build --single
