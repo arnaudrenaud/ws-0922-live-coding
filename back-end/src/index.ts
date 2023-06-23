@@ -52,11 +52,11 @@ const startServer = async () => {
   const { url } = await server.listen();
   await initializeDatabaseRepositories();
 
-  if (!IS_PRODUCTION) {
-    await SkillRepository.initializeSkills();
-    await SchoolRepository.initializeSchools();
-    await WilderRepository.initializeWilders();
-  }
+  // if (!IS_PRODUCTION) {
+  //   await SkillRepository.initializeSkills();
+  //   await SchoolRepository.initializeSchools();
+  //   await WilderRepository.initializeWilders();
+  // }
 
   console.log(`🚀  Server ready at ${url}.`);
 };

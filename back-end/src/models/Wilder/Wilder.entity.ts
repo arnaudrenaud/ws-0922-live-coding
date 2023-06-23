@@ -54,6 +54,9 @@ export default class Wilder {
   @Field()
   isApproved: boolean;
 
+  @Column()
+  homeCity: string;
+
   @Field(() => String)
   getFullName() {
     return `${this.firstName} ${this.lastName}`;
