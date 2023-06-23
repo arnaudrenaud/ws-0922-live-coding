@@ -8,7 +8,9 @@
     "test:watch": "npm run test -- --watchAll",
     "build": "tsc",
     "start": "node dist/index.js",
-    "start:watch": "tsc && (tsc -w & nodemon dist/index.js)"
+    "start:watch": "tsc && (tsc -w & nodemon dist/index.js)",
+    "typeorm": "typeorm-ts-node-commonjs -d ./src/database/utils.ts",
+    "migration:generate": "npm run typeorm migration:generate src/database/migrations/migration"
   },
   "author": "",
   "license": "ISC",
